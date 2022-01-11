@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<h1>paper.js with JavaScript</h1>
 <!-- Load the Paper.js library -->
 <script src="./paper-full.js"></script>
 <!-- Define inlined JavaScript -->
@@ -55,9 +56,10 @@ window.onload = () => {
 	});
 	
 	paper.view.onFrame = (event) => {
-		// Each frame, rotate the path by 3 degrees:
-		rect.rotate(3);
-		paths.forEach(p => p.rotate(.3));
+		if (chk.checked) {
+			rect.rotate(3);
+			paths.forEach(p => p.rotate(.3));
+		}
 	};
 	btn1.onclick = () => {
 		tool1.activate();
@@ -71,9 +73,11 @@ window.onload = () => {
 </head>
 <body>
 <h1>paper.js with JavaScript</h1>
-<canvas id="canvas" x-resize></canvas>
+<canvas id="canvas" resize></canvas>
 <button id=btn1>Lines</button>
 <button id=btn2>Clouds</button>
+<label><input id=chk checked type="checkbox">Rotate</label><br>
+<a href=https://github.com/taisukef/paperjs-test/>src on GitHub</a> / powered by <a href=http://paperjs.org/>paper.js</a>
 
 <style>
 body {
